@@ -1,0 +1,17 @@
+{
+  "name": "p2pdrive-webdav-clean",
+  "version": "0.0.1",
+  "type": "module",
+  "bin": {
+    "p2pdrive": "./bin/p2pdrive"
+  },
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "commander": "^12.1.0",
+    "corestore": "^6.0.0",
+    "hyperdrive": "^11.0.0",
+    "hyperswarm": "^4.5.0",
+    "ora": "^8.0.1",
+    "pretty-bytes": "^6.1.1"
+  }
+}
