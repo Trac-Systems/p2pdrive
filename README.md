@@ -2,7 +2,7 @@
 
 > **Disclaimer:** p2pdrive is partially “vibe-coded” (most WebDAV code, logs and this readme).
 
-A tiny CLI that shares a Hyperdrive key over the Hyperswarm DHT and bridges it to a local **WebDAV** endpoint so you can browse it in Finder (macOS) or any WebDAV client.
+A tiny CLI for p2p file sharing that shares a Hyperdrive key over the Hyperswarm DHT and bridges it to a local **WebDAV** endpoint so you can browse it in Finder (macOS) or any WebDAV client.
 
 - No daemon; single command per role.
 - Owner (writer) and peers (read-only) both use the same CLI: `serve` does **replication + WebDAV**.
