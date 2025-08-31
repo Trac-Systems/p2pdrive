@@ -1,6 +1,6 @@
 # p2pdrive
 
-> **Disclaimer:** p2pdrive is partially “vibe‑coded” (most of webDAV, console logs and this readme). Code is reviewed and tested (Mac).
+> **Disclaimer:** p2pdrive is a working PoC and partially “vibe‑coded” (most of webDAV, console logs and this readme). Code is reviewed and tested (Mac).
 
 Decentralized (p2p) drives to share files.
 
