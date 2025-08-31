@@ -59,15 +59,20 @@ export async function listDir (keyHex, dir = '/', storage) {
   return out
 }
 
-export async function serveWebDAV (keyHex, port, storage, host = '127.0.0.1', readOnly = false, { verbose = false } = {}) {
-  const { drive, dirPath } = await openDrive(storage, keyHex)
-  const spinner = ora('Joining swarm…').start()
-  await replicate(drive, { verbose })
-  spinner.stop()
-  const writable = drive.writable && !readOnly
-  console.log(`${sym.ok} Seeding and serving drive ${chalk.bold(toHex(drive.key))} (${writable ? chalk.green('writable') : chalk.yellow('read-only')})`)
-  console.log(`${sym.info} Store: ${chalk.gray(dirPath)}`)
-  await startDav(drive, { host, port, readOnly, verbose })
-  const url = `http://${host}:${port}/dav/`
-  return { url }
+export async function serveWebDAV (keyHex, { storage, host, port, readOnly, verbose }) {
+  // open drive/session
+  const { drive, swarm, store, close: closeHyper } = await openDrive(storage, keyHex)
+  await replicate(drive)
+
+  // start WebDAV
+  const { close: closeDav } = await startDav(drive, { host, port, readOnly, verbose })
+
+  // return a single cleanup fn
+  return async function cleanup () {
+    try { await closeDav?.() } catch {}
+    try { await swarm?.destroy?.() } catch {}
+    try { await closeHyper?.() } catch {}
+    try { await store?.close?.() } catch {}
+    try { await drive?.close?.() } catch {}
+  }
 }
