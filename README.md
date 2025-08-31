@@ -1,6 +1,6 @@
-# p2pdrive-webdav (POC)
+# p2pdrive
 
-> **Disclaimer:** This is a proof of concept that was heavily “vibe-coded”. Expect sharp edges. Use for experiments only.
+> **Disclaimer:** p2pdrive is partially “vibe-coded” (most WebDAV code, logs and this readme).
 
 A tiny CLI that shares a Hyperdrive key over the Hyperswarm DHT and bridges it to a local **WebDAV** endpoint so you can browse it in Finder (macOS) or any WebDAV client.
 
