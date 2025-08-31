@@ -1,6 +1,6 @@
 {
   "name": "p2pdrive",
-  "version": "1.2.2",
+  "version": "0.0.1",
   "type": "module",
   "bin": {
     "p2pdrive": "./bin/p2pdrive"
